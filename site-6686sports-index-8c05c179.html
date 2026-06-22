@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认识 6686体育 · 在这里快速找到你需要的运动平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f7fafc;
+            color: #1a2a3a;
+            line-height: 1.7;
+            padding: 0 1rem 3rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1100px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 40, 30, 0.08);
+            overflow: hidden;
+        }
+
+        /* Hero 区域 —— 温和开场 */
+        .hero {
+            padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+            background: linear-gradient(135deg, #e6f2f0 0%, #d4eae5 100%);
+            border-bottom: 1px solid #c8ddd8;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #0f3b3a;
+            margin-bottom: 1.2rem;
+            max-width: 620px;
+        }
+
+        .hero .highlight {
+            color: #1e7b72;
+            font-weight: 600;
+        }
+
+        .hero .intro-text {
+            font-size: 1.1rem;
+            color: #2a4a47;
+            max-width: 650px;
+            margin-bottom: 0.25rem;
+        }
+
+        /* 承接段落 */
+        .bridge {
+            padding: 2.5rem 2.5rem 1.8rem 2.5rem;
+            background: white;
+        }
+
+        .bridge p {
+            font-size: 1.05rem;
+            margin-bottom: 1.4rem;
+            color: #1e3a3a;
+        }
+
+        .bridge p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #1a7b6f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid rgba(26, 123, 111, 0.25);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #0c5249;
+            border-bottom-color: #0c5249;
+        }
+
+        /* 特点列表 —— 网格卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 2.5rem 2.5rem 2.5rem;
+            background: #ffffff;
+        }
+
+        .feature-card {
+            background: #f4fbf9;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 60, 40, 0.04);
+            border: 1px solid #e0efe9;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(20, 80, 70, 0.08);
+            border-color: #b6d9cf;
+        }
+
+        .feature-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #165c53;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #2f524b;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            padding: 2rem 2.5rem 3rem 2.5rem;
+            background: #f0f7f4;
+            border-top: 1px solid #d3e4dd;
+        }
+
+        .closing p {
+            max-width: 700px;
+            font-size: 1.05rem;
+            color: #1b403c;
+        }
+
+        .closing .signature {
+            margin-top: 1.2rem;
+            color: #3a6b62;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ 摘要 —— 轻量折叠感 */
+        .faq-mini {
+            padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+            background: white;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.9rem;
+            border-bottom: 1px solid #e2ede8;
+            padding-bottom: 0.9rem;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #13544b;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            font-size: 1.02rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #1b8a7a;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini .answer {
+            padding: 0.4rem 0 0.2rem 1.8rem;
+            color: #2b534b;
+            font-size: 0.96rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero {
+                padding: 2.2rem 1.5rem 1.8rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .bridge {
+                padding: 1.8rem 1.5rem 1.2rem 1.5rem;
+            }
+
+            .feature-grid {
+                padding: 1.5rem 1.5rem 2rem 1.5rem;
+                gap: 1rem;
+            }
+
+            .closing {
+                padding: 1.8rem 1.5rem 2.5rem 1.5rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.5rem 2rem 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero .intro-text {
+                font-size: 1rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero：开场短句 -->
+    <section class="hero">
+        <h1>你打开一个网站，<br>首先想知道：<span class="highlight">这里有什么？</span></h1>
+        <p class="intro-text">
+            对 <a href="https://site-6686sports.com" class="inline-link">6686体育</a> 的第一印象，不该是混乱的弹窗和广告。
+            而是一目了然的布局、清晰的项目分类，以及你能快速判断“这里合不合适”的底气。
+        </p>
+    </section>
+
+    <!-- 承接段落：从用户视角展开 -->
+    <section class="bridge">
+        <p>
+            很多人打开一个新平台，习惯先扫一眼导航栏、看看内容分区是否直接。如果三秒钟内找不到自己感兴趣的东西，就会默默关掉。
+            <a href="https://site-6686sports.com" class="inline-link">6686体育</a> 在这一点上，做得足够坦诚——首页结构不绕弯，主次分明，把选择权交给你。
+        </p>
+        <p>
+            你不需要注册就能看到大部分内容分类，这很关键。运动项目的排列方式偏向实用，没有刻意堆砌术语。
+            从热门赛事到日常训练资讯，入口都摆在明处。你可以像翻一本目录一样，先了解再决定是否深入。
+        </p>
+    </section>
+
+    <!-- 特点列表：网格卡片，蓝绿色调 -->
+    <section class="feature-grid">
+        <div class="feature-card">
+            <span class="icon">🏟️</span>
+            <h3>内容分区明确</h3>
+            <p>按运动种类和兴趣标签整理，减少无效点击。看一眼就知道该往哪走。</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">📋</span>
+            <h3>信息密度适中</h3>
+            <p>不会一屏塞满上百个链接。每个模块留有呼吸感，阅读负担小。</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">🔍</span>
+            <h3>搜索直达</h3>
+            <p>顶部搜索框支持关键词查找，快速过滤无关内容。适合目标明确的用户。</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon">📱</span>
+            <h3>移动端适配</h3>
+            <p>手机浏览器打开同样整洁，按钮和卡片大小经过调整，单手操作不费力。</p>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 —— 轻量问答 -->
+    <section class="faq-mini">
+        <details>
+            <summary>适合哪些人使用？</summary>
+            <div class="answer">无论你是偶尔看看比赛结果，还是想系统了解某个运动项目，<a href="https://site-6686sports.com" class="inline-link">6686体育</a> 都提供了对应的内容入口。没有强制订阅，按需浏览即可。</div>
+        </details>
+        <details>
+            <summary>需要注册才能看到内容吗？</summary>
+            <div class="answer">大部分导航和分类信息对访客开放。部分个性化功能可能需要账号，但浏览首页和主要板块无需登录。</div>
+        </details>
+        <details>
+            <summary>网站更新频率如何？</summary>
+            <div class="answer">首页推荐和列表会定期刷新，保持与当前赛事、季节活动同步。你可以把这里当作一个信息参考点。</div>
+        </details>
+    </section>
+
+    <!-- 温和结尾 -->
+    <section class="closing">
+        <p>
+            一个网站值不值得留下来，往往取决于最初十秒的体验。
+            <a href="https://site-6686sports.com" class="inline-link">6686体育</a> 不靠夸张标语留住你，而是用清晰的路径和克制的设计，
+            让你自己决定：这里是否值得花时间。
+        </p>
+        <p class="signature">
+            慢慢看，不着急。<br>
+            找到你需要的，然后做你想做的。
+        </p>
+    </section>
+
+</div>
+</body>
+</html>
